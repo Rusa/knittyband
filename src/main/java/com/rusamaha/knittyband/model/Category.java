@@ -14,6 +14,13 @@ public class Category {
     private Category parentCategory;
     private String categoryName;
 
+    public Category(){
+
+    }
+
+    public Category(Long id){
+        this.id = id;
+    }
     public Long getId() {
         return id;
     }
@@ -37,4 +44,6 @@ public class Category {
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
     }
+
+
 }

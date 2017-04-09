@@ -1,7 +1,7 @@
 package com.rusamaha.knittyband.services;
 
-import com.rusamaha.knittyband.dao.UserDao;
-import com.rusamaha.knittyband.model.User;
+import com.rusamaha.knittyband.dao.CategoryDao;
+import com.rusamaha.knittyband.model.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,17 +9,17 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * Created by rusamaha on 4/7/17.
+ * Created by rusamaha on 4/9/17.
  */
 
 @Service
 @Transactional
-public class UserService {
+public class CategoryService {
 
     @Autowired
-    UserDao userDao;
+    CategoryDao categoryDao;
 
-    public List<User> getAll(){
-        return null;
+    public List<Category> getAll(){
+        return categoryDao.getCategories();
     }
 }

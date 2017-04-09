@@ -13,6 +13,7 @@
     <properties>
         <spring.version>4.3.4.RELEASE</spring.version>
         <scope.lib>compile</scope.lib>
+        <hibernate.version>4.3.0.Final</hibernate.version>
     </properties>
 
     <dependencies>
@@ -35,6 +36,14 @@
             <version>${spring.version}</version>
             <scope>${scope.lib}</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+            <scope>${scope.lib}</scope>
+        </dependency>
+
         <!--JSP -->
         <dependency>
             <groupId>jstl</groupId>
@@ -50,16 +59,28 @@
             <scope>provided</scope>
         </dependency>
         <!-- Spring-data-jpa -->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.data</groupId>-->
+            <!--<artifactId>spring-data-jpa</artifactId>-->
+            <!--<version>1.9.1.RELEASE</version>-->
+            <!--<scope>${scope.lib}</scope>-->
+        <!--</dependency>-->
         <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-            <version>1.9.1.RELEASE</version>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
             <scope>${scope.lib}</scope>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>4.2.5.Final</version>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.2.0.Final</version>
+            <scope>${scope.lib}</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/javax.persistence/persistence-api -->
@@ -85,6 +106,12 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
             <version>2.5.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
         </dependency>
 
 

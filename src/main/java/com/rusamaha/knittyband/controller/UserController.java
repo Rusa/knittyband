@@ -20,8 +20,8 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @ResponseBody
     @RequestMapping("/getAll")
+    @ResponseBody
     List<User> getAll(){
         return userService.getAll();
     }

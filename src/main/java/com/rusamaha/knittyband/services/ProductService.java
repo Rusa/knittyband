@@ -1,6 +1,7 @@
 package com.rusamaha.knittyband.services;
 
-import com.rusamaha.knittyband.dao.ProductRepository;
+import com.rusamaha.knittyband.dao.ProductDao;
+import com.rusamaha.knittyband.model.Category;
 import com.rusamaha.knittyband.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,9 +17,13 @@ import java.util.List;
 public class ProductService {
 
     @Autowired
-    ProductRepository productRepository;
+    ProductDao productDao;
 
     public Iterable<Product> getAll(){
-        return productRepository.findAll();
+        return null;
+    }
+
+    public List<Product> getByCategory(Category category) {
+        return productDao.getProductsByCategory(category);
     }
 }
