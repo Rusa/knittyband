@@ -3,6 +3,7 @@ package com.rusamaha.knittyband.config.application;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.view.JstlView;
  */
 @Configuration
 @EnableWebMvc
+@EnableSpringDataWebSupport //// TODO: 4/9/17 FOR WHAT IS USEFUL?
 @ComponentScan({"com.rusamaha.knittyband.*"})
 public class WebConfig extends WebMvcConfigurerAdapter{
     @Bean

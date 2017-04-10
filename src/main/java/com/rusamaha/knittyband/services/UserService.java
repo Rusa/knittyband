@@ -1,6 +1,6 @@
 package com.rusamaha.knittyband.services;
 
-import com.rusamaha.knittyband.dao.UserDao;
+import com.rusamaha.knittyband.dao.UserRepository;
 import com.rusamaha.knittyband.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,9 +17,9 @@ import java.util.List;
 public class UserService {
 
     @Autowired
-    UserDao userDao;
+    UserRepository userRepository;
 
     public List<User> getAll(){
-        return null;
+        return (List<User>) userRepository.findAll();
     }
 }

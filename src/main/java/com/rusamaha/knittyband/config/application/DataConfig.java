@@ -1,15 +1,11 @@
 package com.rusamaha.knittyband.config.application;
 
-import org.apache.commons.dbcp.BasicDataSource;
-import org.hibernate.SessionFactory;
 import org.hibernate.ejb.HibernatePersistence;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate4.HibernateTransactionManager;
-import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -26,21 +22,23 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
+@EnableJpaRepositories("com.rusamaha.knittyband.dao")
 public class DataConfig {
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+        em.setDataSource(dataSource());
+        em.setPackagesToScan("com.rusamaha.knittyband.model");
+        em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+//        em.setPersistenceProviderClass(HibernatePersistence.class);
+        em.setJpaProperties(additionalProperties());
 
-    @Autowired
-    @Bean(name = "sessionFactory")
-    public SessionFactory getSessionFactory(DataSource dataSource) {
-
-        LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
-        sessionBuilder.scanPackages("com.rusamaha.knittyband.model");
-        sessionBuilder.setProperties(additionalProperties());
-        return sessionBuilder.buildSessionFactory();
+        return em;
     }
 
-    @Bean(name = "dataSource")
+    @Bean
     public DataSource dataSource() {
-        BasicDataSource dataSource = new BasicDataSource();
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/knittyband");
         dataSource.setUsername("root");
@@ -48,12 +46,10 @@ public class DataConfig {
         return dataSource;
     }
 
-    @Autowired
-    @Bean(name = "transactionManager")
-    public HibernateTransactionManager getTransactionManager(
-            SessionFactory sessionFactory) {
-        HibernateTransactionManager transactionManager = new HibernateTransactionManager(
-                sessionFactory);
+    @Bean
+    public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(emf);
 
         return transactionManager;
     }

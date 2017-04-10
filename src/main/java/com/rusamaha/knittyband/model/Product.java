@@ -15,9 +15,9 @@ public class Product {
     private String name;
     private String productImgPath;
     private String description;
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany
     private List<Size> size;
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany
     private List<Color> color;
     private BigDecimal price;
     @ManyToOne

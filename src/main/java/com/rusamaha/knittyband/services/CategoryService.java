@@ -1,6 +1,6 @@
 package com.rusamaha.knittyband.services;
 
-import com.rusamaha.knittyband.dao.CategoryDao;
+import com.rusamaha.knittyband.dao.CategoryRepository;
 import com.rusamaha.knittyband.model.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,9 +17,9 @@ import java.util.List;
 public class CategoryService {
 
     @Autowired
-    CategoryDao categoryDao;
+    CategoryRepository categoryRepository;
 
     public List<Category> getAll(){
-        return categoryDao.getCategories();
+        return (List<Category>)categoryRepository.findAll();
     }
 }
