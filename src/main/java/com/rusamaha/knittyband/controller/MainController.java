@@ -14,8 +14,18 @@ import javax.servlet.http.HttpServletResponse;
 public class MainController  {
 
     @RequestMapping("/")
-    public ModelAndView adviseBeer(HttpServletRequest request, HttpServletResponse response){
+    public ModelAndView mainPage(HttpServletRequest request, HttpServletResponse response){
         ModelAndView modelAndView = new ModelAndView("home");
         return modelAndView;
     }
+
+    @RequestMapping("/categories")
+    public ModelAndView categories(HttpServletRequest request, HttpServletResponse response){
+        ModelAndView modelAndView = new ModelAndView("categories");
+
+
+
+        return modelAndView;
+    }
+
 }
