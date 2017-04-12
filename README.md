@@ -1,6 +1,7 @@
 # README #
 
-E-Commerce project
+E-Commerce project KnittyBand
+
 This README would normally document whatever steps are necessary to get your application up and running.
 
 ### What is this repository for? ###
@@ -26,5 +27,5 @@ This README would normally document whatever steps are necessary to get your app
 
 ### Who do I talk to? ###
 
-* Repo owner or admin
+* Repo owner or admin Rustam aka Rusamaha (dr.rustam@gmail.com)
 * Other community or team contact
