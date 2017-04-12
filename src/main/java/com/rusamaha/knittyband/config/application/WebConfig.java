@@ -18,6 +18,8 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableSpringDataWebSupport //// TODO: 4/9/17 FOR WHAT IS USEFUL?
 @ComponentScan({"com.rusamaha.knittyband.*"})
 public class WebConfig extends WebMvcConfigurerAdapter{
+
+
     @Bean
     public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
