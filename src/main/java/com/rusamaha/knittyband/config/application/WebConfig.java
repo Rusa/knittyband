@@ -36,6 +36,7 @@ public class WebConfig extends WebMvcConfigurerAdapter{
         registry.addResourceHandler("/js/**").addResourceLocations("/WEB-INF/views/js/");
         registry.addResourceHandler("/lib/**").addResourceLocations("/WEB-INF/views/lib/");
         registry.addResourceHandler("/images/**").addResourceLocations("/WEB-INF/views/images/");
+        registry.addResourceHandler("/imgProduct/**").addResourceLocations("/WEB-INF/views/imgProduct/"); ////FIXME: delete it
         registry.addResourceHandler("/resources/**").addResourceLocations("/WEB-INF/views/resources/");
     }
 }

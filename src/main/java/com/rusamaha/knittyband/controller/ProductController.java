@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Created by rusamaha on 4/7/17.
@@ -20,7 +21,7 @@ public class ProductController {
 
     @RequestMapping("/getAll")
     @ResponseBody
-    public Iterable<Product> getAll(){
+    public Iterable<Product> getAll() {
         return productService.getAll();
     }
 
@@ -30,4 +31,13 @@ public class ProductController {
         System.out.println(id);
         return productService.getByCategory(new Category(id));
     }
+
+
+//    @RequestMapping("/getByCategory")
+//    ModelAndView getProductsByCategory(@RequestParam Long id) {
+//        ModelAndView modelAndView = new ModelAndView("productsByCategory");
+//        modelAndView.addObject("products", productService.getByCategory(new Category(id)));
+//        System.out.println(id);
+//        return modelAndView;
+//    }
 }

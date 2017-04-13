@@ -1,5 +1,6 @@
 package com.rusamaha.knittyband.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -26,6 +27,7 @@ public class Product {
     private List<Color> color;
     private BigDecimal price;
     @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
     private Category category;
 
     public Long getId() {

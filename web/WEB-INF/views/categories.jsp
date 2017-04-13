@@ -38,7 +38,9 @@
                 <ul class="nav">
                     <c:forEach var="category" items="${categories}">
                         <li class="dropdown1">
-                            <a href="http://localhost:8089/product/getByCategory?id=${category.id}">${category.categoryName}</a>
+                            <%--<a href="http://localhost:8089/product/getByCategory?id=${category.id}">${category.categoryName}</a>--%>
+                                <a href="#" class="category" attr-id="${category.id}" >${category.categoryName}</a>
+
                         </li>
                     </c:forEach>
                 </ul>
@@ -46,7 +48,51 @@
         </div>
     </div>
 </div>
+<!-- //header -->
+<!-- products -->
+<div class="products">
+    <!-- container -->
+    <div class="container">
+        <div class="products-heading">
+            <h3>POPULAR PRODUCTS</h3>
+        </div>
+        <div id="productsByCategory" class="products-grids">
+
+        </div>
+    </div>
+    <!-- //container -->
+</div>
+<!-- // products -->
+
+<script id="productsTemplate" type="text/x-jsrender">
+    {{for products}}
+        <div class="col-md-3 product-left-grid">
+            <div class="product-grid">
+                <div class="product-grid-text">
+                    <a href="single.html"><img src="../imgProduct/{{:productImgPath}}" alt="" /></a>
+                    <div class="products-grid-info">
+                        <h3>{{:name}}</h3>
+                        <h4>{{:name}}</h4>
+                        <p>{{:description}}</p>
+                        <div class="price">
+                            <p>&#8381; {{:price}}</p>
+                        </div>
+                        <div class="like">
+                            <a href="#"><img src="../images/like.png" alt="" /></a>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="plus">
+                        <a href="single.html"><img src="../images/plus.png" alt="" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/for}}
+</script>
+
 </body>
 </html>
 <script src="http://localhost:8089/lib/jquery.js"></script>
+<script src="http://localhost:8089/lib/jsrender.js"></script>
 <script src="http://localhost:8089/js/categories.js"></script>
