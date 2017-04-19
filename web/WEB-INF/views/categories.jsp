@@ -69,7 +69,8 @@
         <div class="col-md-3 product-left-grid">
             <div class="product-grid">
                 <div class="product-grid-text">
-                    <a href="single.html"><img src="../imgProduct/{{:productImgPath}}" alt="" /></a>
+                    <%--<a href="single.html"><img src="../imgProduct/{{:productImgPath}}" alt="" /></a>--%>
+                    <a href="http://localhost:8089/product/getProduct?id={{:id}}"><img src="../imgProduct/{{:productImgPath}}" alt="" /></a>
                     <div class="products-grid-info">
                         <h3>{{:name}}</h3>
                         <h4>{{:name}}</h4>

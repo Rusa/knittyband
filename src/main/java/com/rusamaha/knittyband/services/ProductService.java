@@ -30,4 +30,8 @@ public class ProductService {
     public List<Product> getByCategory(Category category) {
         return productRepositoryCustom.getProductsByCategory(category);
     }
+
+    public Product getProduct(Long id){
+        return productRepository.findOne(id);
+    }
 }

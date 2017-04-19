@@ -4,6 +4,15 @@ E-Commerce project KnittyBand
 
 This README would normally document whatever steps are necessary to get your application up and running.
 
+### Stages of development:
+
+* Spring Java config - done;
+* Database structure - done;
+* Models implementation - done;
+* DAO - in progress
+* Web part - initial structure, new features implementation
+
+
 ### What is this repository for? ###
 
 * Quick summary

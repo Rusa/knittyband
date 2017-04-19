@@ -2,6 +2,7 @@ package com.rusamaha.knittyband.controller;
 
 import com.rusamaha.knittyband.model.Category;
 import com.rusamaha.knittyband.services.CategoryService;
+import com.rusamaha.knittyband.util.ViewUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,9 @@ public class CategoryController {
     @Autowired
     CategoryService categoryService;
 
+    @Autowired
+    ViewUtil viewUtil;
+
     @RequestMapping("/getAll")
     @ResponseBody
     List<Category> getAll(){
@@ -30,7 +34,7 @@ public class CategoryController {
     @RequestMapping("/getAllCategory")
     ModelAndView getAllCategory(){
         ModelAndView modelAndView = new ModelAndView("categories");
-        modelAndView.addObject("categories", categoryService.getAll());
+        viewUtil.initView(modelAndView);
         return modelAndView;
     }
 }
